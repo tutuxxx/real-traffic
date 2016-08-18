@@ -1,0 +1,44 @@
+10:26:36.315 INFO - Launching a standalone Selenium Server
+Setting system property webdriver.chrome.driver to /Users/ysj/WebstormProjects/vue-demo/vue-template/node_modules/selenium-standalone/.selenium/chromedriver/2.22-x64-chromedriver
+10:26:36.387 INFO - Java: Oracle Corporation 25.45-b02
+10:26:36.387 INFO - OS: Mac OS X 10.10.3 x86_64
+10:26:36.412 INFO - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
+10:26:36.574 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+10:26:36.574 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+10:26:36.575 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+10:26:36.575 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+10:26:36.580 INFO - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+10:26:36.580 INFO - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+10:26:36.683 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+10:26:36.684 INFO - Selenium Server is up and running
+10:26:37.217 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Demo, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+10:26:37.233 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Demo, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.22.397929 (fb72fb249a903a0b1041ea71eb4c8b3fa0d9be5a) on port 41651
+Only local connections are allowed.
+10:26:38.994 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Demo, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+10:26:39.010 INFO - Executing: [get: http://bing.com])
+10:26:39.894 INFO - Done: [get: http://bing.com]
+10:26:39.904 INFO - Executing: [maximise window])
+10:26:40.423 INFO - Done: [maximise window]
+10:26:40.430 INFO - Executing: [find elements: By.cssSelector: body])
+10:26:40.467 INFO - Done: [find elements: By.cssSelector: body]
+10:26:40.474 INFO - Executing: [find elements: By.cssSelector: #sb_form_q])
+10:26:40.497 INFO - Done: [find elements: By.cssSelector: #sb_form_q]
+10:26:40.501 INFO - Executing: [is displayed: 1 [[ChromeDriver: chrome on MAC (f21b73017903ffac029f9a9e4e50625b)] -> css selector: #sb_form_q]])
+10:26:40.516 INFO - Done: [is displayed: 1 [[ChromeDriver: chrome on MAC (f21b73017903ffac029f9a9e4e50625b)] -> css selector: #sb_form_q]]
+10:26:42.524 INFO - Executing: [find element: By.cssSelector: #sb_form_q])
+10:26:43.590 INFO - Done: [find element: By.cssSelector: #sb_form_q]
+10:26:43.595 INFO - Executing: [send keys: 1 [[ChromeDriver: chrome on MAC (f21b73017903ffac029f9a9e4e50625b)] -> css selector: #sb_form_q], [w, h, a, t,  , i, s,  , m, i, c, r, o, s, o, f, t]])
+10:26:43.666 INFO - Done: [send keys: 1 [[ChromeDriver: chrome on MAC (f21b73017903ffac029f9a9e4e50625b)] -> css selector: #sb_form_q], [w, h, a, t,  , i, s,  , m, i, c, r, o, s, o, f, t]]
+10:26:43.673 INFO - Executing: [find element: By.cssSelector: #sb_form_go])
+10:26:43.693 INFO - Done: [find element: By.cssSelector: #sb_form_go]
+10:26:43.696 INFO - Executing: [click: 2 [[ChromeDriver: chrome on MAC (f21b73017903ffac029f9a9e4e50625b)] -> css selector: #sb_form_go]])
+10:26:44.360 INFO - Done: [click: 2 [[ChromeDriver: chrome on MAC (f21b73017903ffac029f9a9e4e50625b)] -> css selector: #sb_form_go]]
+10:26:46.369 INFO - Executing: [find elements: By.cssSelector: body])
+10:26:46.481 INFO - Done: [find elements: By.cssSelector: body]
+10:26:46.486 INFO - Executing: [take screenshot])
+10:26:47.149 INFO - Done: [take screenshot]
+10:26:47.197 INFO - Executing: [delete session: 5c53bfd4-b679-479e-99b5-de25f503edb7])
+10:26:47.277 INFO - Done: [delete session: 5c53bfd4-b679-479e-99b5-de25f503edb7]

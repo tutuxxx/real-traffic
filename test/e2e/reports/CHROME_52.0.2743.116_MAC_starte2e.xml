@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="0">
+
+  <testsuite name="starte2e"
+    errors="0" failures="0" hostname="" id="" package="starte2e" skipped="0"
+    tests="0" time="0.000" timestamp="Wed, 17 Aug 2016 02:26:47 GMT">
+  
+  
+  </testsuite>
+</testsuites>

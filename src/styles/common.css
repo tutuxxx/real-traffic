@@ -1,0 +1,17 @@
+@import 'reset.css';
+
+
+body, html {
+    overflow: hidden;
+}
+
+body {
+    color: #4d4d4d;
+    font: 14px/1.4em 'Helvetica Neue', Helvetica, 'Microsoft Yahei', Arial, sans-serif;
+    font-smoothing: antialiased;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}

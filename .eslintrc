@@ -1,0 +1,30 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "destructuring": true,
+        "classes": true,
+        "defaultParams": true,
+        "blockBindings": true,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "restParams": true,
+        "spread": true,
+        "templateStrings": true
+    },
+    "extends": "vue",
+    "parser": "babel-eslint",
+    "rules": {
+      //语句强制分号结尾
+      "semi": [2, "always"],
+      //多余的分号
+      "no-extra-semi": 1,
+      //如果不以单一的换行符结束，警告
+      "eol-last": 1
+    }
+}
