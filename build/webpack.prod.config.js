@@ -14,7 +14,7 @@ config.vue = {
             "style-loader",
             "css-loader",
             {
-                publicPath: "../dist/"
+                publicPath: "./dist/"
                 // 特别提醒,如果这里的publicPath是以http://xxx.xxx这样以http://开头的,要写成
                 // publicPath: "http:\\xxx.xxx",否则会编译为"http:/xxx.xxx"
             }
@@ -36,7 +36,7 @@ config.plugins = (config.plugins || []).concat([
         }
     }),
     new HtmlWebpackPlugin({                                                                        // 构建html文件
-        filename: '../index_prod.html',
+        filename: '../index-prod.html',
         template: './src/template/index.html',
         inject: 'body'
     })

@@ -14,7 +14,7 @@ module.exports = {
     chrome: {
       // Chrome 浏览器启动 Driver，请在下方链接查询最新版本。
       // https://chromedriver.storage.googleapis.com/index.html
-      version: '2.22',
+      version: '2.23',
       arch: process.arch,
       baseURL: 'https://chromedriver.storage.googleapis.com'
     }

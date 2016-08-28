@@ -1,0 +1,51 @@
+#expand-point {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.9);
+  transform: scale(0);
+  animation: expand 3s;
+  animation-iteration-count: infinite;
+}
+
+/*不能将expand-point的overflow值设为其他，只能使用默认值visible，防止元素扩大后容器无法容纳，不加将出现圆形变方*/
+.ol-overlay-container {
+  overflow: visible;
+}
+
+@keyframes expand {
+  to {
+    transform: scale(2);
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+.ol-mouse-position {
+  bottom: 0;
+  top: auto;
+  font-size: .6rem;
+}
+
+.layer-switcher {
+  top: 3rem;
+  bottom: auto;
+
+  button {
+    width: 26px;
+    height: 26px;
+    background-position: 0;
+    background-size: 95%;
+  }
+
+  label {
+    font-size: .5rem;
+  }
+}
+
+.ol-zoomslider, .ol-zoom-extent {
+  top: 1rem;
+}
+
+.ol-zoomslider {
+  background-color: rgba(255, 255, 255, .7);
+}

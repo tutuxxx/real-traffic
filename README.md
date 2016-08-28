@@ -1,16 +1,19 @@
-#vue-template
-> 本项目可以帮你快速搭建一个基于Vue的单页面富应用,但这并不意味着是最佳实践,所有的目录结构和webpack配置都可以根据自己需要修改
+#traffic-info
+> 本项目主要通过前端一些比较新的技术重构1年前自己做的一个WebGIS项目：路况信息查询系统。这也是人生做的第一个B/S系统。希望可以通过重构，改善既有代码，梳理应用这一年积累的技术栈。本项目基础开发框架基于Aresn大神的[vue-vueRouter-webpack](https://github.com/icarusion/vue-vueRouter-webpack)，不过在此基础上新增:
 
-##教程
-> 可以访问下面的链接来查看系列教程
+* 代码规范工具
+* 单元测试工具
+* e2e测试工具
+* Html模版引擎Jade
+* CSS预编译器SCSS
 
-[Vue+Webpack开发可复用的单页面富应用教程（配置篇）](https://www.talkingcoder.com/article/6310080842228107877)
+如果您需要此项目的开发框架，可以参考另一个项目[vue-template](https://github.com/tutuxxx/vue-template);
 
-[Vue+Webpack开发可复用的单页面富应用教程（组件篇）](https://www.talkingcoder.com/article/6310724958473489215)
+##相关教程
+[Webpack使用指南](http://tutuxxx.github.io/2016/08/18/Webpack使用指南/)
+[代码规范](http://tutuxxx.github.io/2016/08/14/在Vue+Babel+Webpack环境中使用ESLint/)
+[自动化测试](http://tutuxxx.github.io/2016/08/16/是时候学学前端自动化测试了/)
 
-[Vue+Webpack开发可复用的单页面富应用教程（技巧篇）](https://www.talkingcoder.com/article/6310756346094488391)
-
-[Vue+Webpack使用规范](https://www.talkingcoder.com/article/6309726065044556372)
 ##目录结构
 <pre>
 │  .gitignore          # 忽略文件,比如 node_modules
@@ -62,7 +65,6 @@
 
 </pre>
 
-
 ##说明
 目前已将css(使用@import的和.vue内style的)样式都独立抽离为main.css文件,如果想按需加载,可以将webpack.base.js内的如下代码注释
 ```javascript
@@ -98,6 +100,10 @@ npm install webpack-dev-server -g
 
 // 安装成功后,再安装依赖
 npm install
+
+// 安装selenium及所需浏览器的driver
+npm run selenium-setup
+
 ```
 
 ##运行
@@ -111,6 +117,15 @@ npm run dev
 ####生产环境(打包)
 ```
 npm run build
+```
+
+####测试
+```
+//单元测试
+npm run unittest
+
+//e2e测试
+npm run e2etest
 ```
 
 ####访问

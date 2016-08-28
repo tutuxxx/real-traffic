@@ -1,10 +1,9 @@
-<style scoped>
-  @import '../styles/common.css';
+<style lang="sass">
+  @import '../styles/common.scss';
 </style>
-<template>
-  <div>
-    <router-view></router-view>
-  </div>
+<template lang="pug">
+  div
+    router-view
 </template>
 <script>
   module.exports = {
