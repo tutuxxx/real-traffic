@@ -2,6 +2,7 @@
   import ol from 'openlayers';
   import 'ol3-layerswitcher/src/ol3-layerswitcher';
   import geoTransform from '../libs/geoTransform';
+  import mapUtil from '../libs/mapUtil';
   import ips from '../config/ips';
   export default {
     el: '#main-container',
@@ -110,6 +111,13 @@
           })
         });
 
+        var vectorLayer = new ol.layer.Vector({
+          source: new ol.source.Vector({
+            features: []
+          }),
+          title:'覆盖物图层'
+        });
+
         var trafficArrow = new ol.layer.Tile({
           title: '道路流向',
           visible: false,
@@ -131,7 +139,8 @@
           'title': '叠加图层',
           layers: [
             trafficRoad,
-            trafficArrow
+            trafficArrow,
+            vectorLayer
           ]
         });
 
@@ -183,29 +192,27 @@
         point_overlay.setPosition(ol.proj.transform([114.034428, 22.598805], 'EPSG:4326', 'EPSG:3857'));
       },
       drawPoints: function () {
-        var points=this.coords.split(';');
+//        var points=this.coords.split(';');
+        this.paintTip=mapUtil.drawPoints(this.olmap,this.coords,'覆盖物图层',this.coordType);
+      },
+      drawLines: function () {
+//        var points=this.coords.split(';');
+        var vectorLayer;
 
-        var vectorSource = new ol.source.Vector({
-          features: []
+        this.olmap.getLayers().forEach(function(layer, i) {
+          if (layer instanceof ol.layer.Group) {
+            layer.getLayers().forEach(function(sublayer, j) {
+              if(sublayer.get('title')==='覆盖物图层'){
+                vectorLayer=sublayer;
+              }
+            });
+          }
         });
 
-        var vectorLayer = new ol.layer.Vector({
-          source: vectorSource
+        var feature = new ol.Feature({
+          geometry:new ol.geom.LineString(
+            [[-1e7, 1e6], [-1e6, 3e6]])
         });
-
-        this.olmap.addLayer(vectorLayer);
-
-        var rome = new ol.Feature({
-          geometry: new ol.geom.Point(ol.proj.transform([114.034428, 22.598805], 'EPSG:4326', 'EPSG:3857'))
-        });
-        rome.setStyle(new ol.style.Style({
-          image: new ol.style.Icon( ({
-            color: 'red',
-            src: '../images/dot.png'
-          }))
-        }));
-
-        vectorLayer.getSource().addFeature(rome);
       }
 
     },
@@ -240,7 +247,7 @@
       input.paint-btn(@click="drawLines",value="画轨迹线",type="button")
       input.paint-btn(@click="drawEoLine",value="画奇偶线",type="button")
       input.paint-btn(@click="clearLines",value="清除轨迹",type="button")
-      span#trace_info {{paintTip}}
+      span#trace_info(v-model="paintTip") {{paintTip}}
     .paint-content
       textarea#txt_latlons(v-model="coords")
 </template>
@@ -323,8 +330,14 @@
   .paint-title {
     background: linear-gradient(90deg, #1d976c 10%, #93f9b9 90%);
     color: #fff;
-    height:1rem;
+    height:1.5rem;
     font-size: 1rem;
+
+      *{
+        vertical-align: middle;
+        line-height:100%;
+        height:100%;
+      }
 
       .paint-btn{
         background: #1d976c;
@@ -345,10 +358,16 @@
           height:16px;
         }
       }
+
+      #trace_info{
+        color: red;
+        font-size: .8rem;
+        margin-left: 1rem;
+      }
   }
 
   .paint-content{
-    height:calc(100% - 1rem);
+    height:calc(100% - 1.5rem);
     width:100%;
   }
 
