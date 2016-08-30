@@ -19,9 +19,9 @@
     computed: {
       baseUrl: function () {
         var ip = window.location.href.split('//')[1].split(':')[0];
-        if (ip === ips.serverIp || ip === 'localhost') {
+        if (ip === ips.serverIp ) {
           return 'http://'+ips.serverIp+':8080';
-        } else if (ip === ips.localIp) {
+        } else if (ip === ips.localIp|| ip === 'localhost') {
           return 'http://'+ips.localIp+':8080';
         }
       }
@@ -192,27 +192,18 @@
         point_overlay.setPosition(ol.proj.transform([114.034428, 22.598805], 'EPSG:4326', 'EPSG:3857'));
       },
       drawPoints: function () {
-//        var points=this.coords.split(';');
         this.paintTip=mapUtil.drawPoints(this.olmap,this.coords,'覆盖物图层',this.coordType);
       },
       drawLines: function () {
-//        var points=this.coords.split(';');
-        var vectorLayer;
-
-        this.olmap.getLayers().forEach(function(layer, i) {
-          if (layer instanceof ol.layer.Group) {
-            layer.getLayers().forEach(function(sublayer, j) {
-              if(sublayer.get('title')==='覆盖物图层'){
-                vectorLayer=sublayer;
-              }
-            });
-          }
-        });
-
-        var feature = new ol.Feature({
-          geometry:new ol.geom.LineString(
-            [[-1e7, 1e6], [-1e6, 3e6]])
-        });
+        this.paintTip=mapUtil.drawPoints(this.olmap,this.coords,'覆盖物图层',this.coordType);
+        mapUtil.drawLines(this.olmap,this.coords,'覆盖物图层',this.coordType);
+      },
+      drawEoLine:function(){
+        this.paintTip=mapUtil.drawPoints(this.olmap,this.coords,'覆盖物图层',this.coordType);
+        mapUtil.drawEoLine(this.olmap,this.coords,'覆盖物图层',this.coordType);
+      },
+      clearVector: function () {
+        mapUtil.getLayerByAtri(this.olmap, 'title', '覆盖物图层').getSource().clear();
       }
 
     },
@@ -246,7 +237,7 @@
       input.paint-btn(@click="drawPoints",value="画轨迹点",type="button")
       input.paint-btn(@click="drawLines",value="画轨迹线",type="button")
       input.paint-btn(@click="drawEoLine",value="画奇偶线",type="button")
-      input.paint-btn(@click="clearLines",value="清除轨迹",type="button")
+      input.paint-btn(@click="clearVector",value="清除轨迹",type="button")
       span#trace_info(v-model="paintTip") {{paintTip}}
     .paint-content
       textarea#txt_latlons(v-model="coords")
